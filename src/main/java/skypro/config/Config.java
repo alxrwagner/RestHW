@@ -44,6 +44,7 @@ public class Config {
         Properties properties = new Properties(); // добавляем пакет property из пакета java.util
         properties.setProperty("dialect", "org.hibernate.dialect.PostgreSQLDialect"); // устанавливаем диалект
         properties.setProperty("show_sql", "true");
+        properties.setProperty("hibernate.hbm2ddl.auto", "update");
 
         sessionFactory.setHibernateProperties(properties); // устанавливаем настройки в sessionFactory
 
