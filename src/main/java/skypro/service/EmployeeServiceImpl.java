@@ -3,6 +3,7 @@ package skypro.service;
 import org.springframework.stereotype.Service;
 import skypro.dao.EmployeeDAO;
 import skypro.entity.Employee;
+import skypro.exeptions.EmployeeException;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -24,7 +25,12 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public Employee getById(int id) {
-        return employeeDAO.getById(id);
+        Employee employee = employeeDAO.getById(id);
+
+        if (employee == null){
+            throw new EmployeeException("ID: " + id + " does not exist");
+        }
+        return employee;
     }
 
     @Override
@@ -42,6 +48,11 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     @Transactional
     public void removeById(int id) {
+        Employee employee = employeeDAO.getById(id);
+
+        if (employee == null){
+            throw new EmployeeException("ID: " + id + " does not exist");
+        }
         employeeDAO.removeById(id);
     }
 }

@@ -23,6 +23,7 @@ public class EmployeeDAOImpl implements EmployeeDAO {
         return session.createQuery("FROM Employee").list();
     }
 
+
     @Override
     public Employee getById(int id) {
         Session session = sessionFactory.getCurrentSession();

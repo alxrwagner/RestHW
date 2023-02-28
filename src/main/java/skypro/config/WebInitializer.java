@@ -5,6 +5,7 @@ import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatche
 // Конфигурационный класс, отвечающий за настройку деспетчер сервлет, благодаря которому все будет работать
 public class WebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
 
+
     // Определяет работу с рут конфиг классами, такого класса нет, поэтому возвращаем null
     protected Class<?>[] getRootConfigClasses() {
         return null;

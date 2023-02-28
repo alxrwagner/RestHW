@@ -6,6 +6,7 @@ import java.util.List;
 
 public interface EmployeeDAO {
 
+
     List<Employee> getAll();
     Employee getById(int id);
     void add(Employee employee);
